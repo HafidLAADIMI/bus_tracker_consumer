@@ -1,0 +1,57 @@
+package com.kafka.consumer.Models;
+
+
+import lombok.AllArgsConstructor;
+import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+// this class will be the schema for the last station for each bus , will use the geospatial and geoJson from mongodb for location
+@Document
+@AllArgsConstructor
+public class LastStation {
+
+    private String busId;
+    private String lastStation;
+    private String lastStationTime;
+    private GeoJsonPoint lastStationLocation;// this is will be the location of the last station to fetch after the nearest station for the bus
+
+    public LastStation(String busId, String lastStation, String lastStationTime, GeoJsonPoint lastStationLocation) {
+        this.busId = busId;
+        this.lastStation = lastStation;
+        this.lastStationTime = lastStationTime;
+        this.lastStationLocation = lastStationLocation;
+    }
+
+    public String getBusId() {
+        return busId;
+    }
+
+    public void setBusId(String busId) {
+        this.busId = busId;
+    }
+
+    public String getLastStation() {
+        return lastStation;
+    }
+
+    public void setLastStation(String lastStation) {
+        this.lastStation = lastStation;
+    }
+
+    public String getLastStationTime() {
+        return lastStationTime;
+    }
+
+    public void setLastStationTime(String lastStationTime) {
+        this.lastStationTime = lastStationTime;
+    }
+
+    public GeoJsonPoint getLastStationLocation() {
+        return lastStationLocation;
+    }
+
+    public void setLastStationLocation(GeoJsonPoint lastStationLocation) {
+        this.lastStationLocation = lastStationLocation;
+    }
+    public LastStation() {};
+}
