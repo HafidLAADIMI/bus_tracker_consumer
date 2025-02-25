@@ -1,6 +1,6 @@
 package com.kafka.consumer.Configuration;
 
-import com.kafka.consumer.Models.Station;
+import com.kafka.consumer.Models.BusTracker;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
@@ -13,13 +13,13 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class ReactiveRedisConfiguration {
     @Bean
-    ReactiveRedisOperations<String, Station> redisOperations(ReactiveRedisConnectionFactory factory) {
-        Jackson2JsonRedisSerializer<Station> serializer = new Jackson2JsonRedisSerializer<>(Station.class);
+    ReactiveRedisOperations<String, BusTracker> redisOperations(ReactiveRedisConnectionFactory factory) {
+        Jackson2JsonRedisSerializer<BusTracker> serializer = new Jackson2JsonRedisSerializer<>(BusTracker.class);
 
-        RedisSerializationContext.RedisSerializationContextBuilder<String, Station> builder =
+        RedisSerializationContext.RedisSerializationContextBuilder<String, BusTracker> builder =
                 RedisSerializationContext.newSerializationContext(new StringRedisSerializer());
 
-        RedisSerializationContext<String, Station> context = builder.value(serializer).build();
+        RedisSerializationContext<String, BusTracker> context = builder.value(serializer).build();
 
         return new ReactiveRedisTemplate<>(factory, context);
     }

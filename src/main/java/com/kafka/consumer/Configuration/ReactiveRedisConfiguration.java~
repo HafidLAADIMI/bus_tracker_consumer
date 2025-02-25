@@ -1,4 +1,0 @@
-package com.kafka.consumer.Configuration;
-
-public class ReactiveRedisConfiguration {
-}

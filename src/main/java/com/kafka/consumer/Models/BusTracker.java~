@@ -55,14 +55,6 @@ public class BusTracker implements Serializable {
     }
     public BusTracker() {};
 
-    @Override
-    public String toString() {
-        return "BusTracker{" +
-                "busId=" + busId +
-                ", lastStation='" + lastStation + '\'' +
-                ", lastStationTime='" + lastStationTime + '\'' +
-                ", lastStationLocation=" + lastStationLocation +
-                '}';
-    }
+
 }
 
